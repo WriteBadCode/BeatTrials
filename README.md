@@ -29,8 +29,6 @@ This project is organized into the following directories:
     * **include/:** Header files for the rhythm game project.
     * **src/main.cpp:** The main source code file for the rhythm game.
 
-## vcpkg Setup and Installation
-
 ### vcpkg Setup
 1. Run the following command to integrate vcpkg with your project and redirect the download port to the `ext` directory:
 
@@ -41,4 +39,3 @@ This project is organized into the following directories:
 2. Run the following command to initiate vcpkg:
     ```bash
     vcpkg install
-    
