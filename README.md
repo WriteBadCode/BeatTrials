@@ -1,6 +1,6 @@
 # BeatTrials
 
-Supposed to be an optional multiplayer Rythm Game 
+Supposed to be an optional multiplayer Rythm Game.
 Including Websocket Server :)
 
 ## Directory Structure
