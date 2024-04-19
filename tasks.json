@@ -1,0 +1,29 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build_socketserver",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "directory": "SocketServer",
+            "command": "cmake",
+            "args": ["--build", "."],
+            "problemMatcher": "$gcc"
+        },
+        {
+            "label": "build_rythmgame",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "directory": "RythmGame",
+            "command": "cmake",
+            "args": ["--build", "."],
+            "problemMatcher": "$gcc"
+        }
+    ]
+}
