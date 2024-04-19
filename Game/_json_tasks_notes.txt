@@ -1,0 +1,32 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build_and_run",   // meant for descriptive name fort the task
+            "type": "shell",    // different running types. 
+            "command": "cl.exe",    // executable or command to run the task
+            "args": [   // provides an array of arguments to pass to the command when it's executed
+                "/Zi",  // generating debug information
+                "/EHsc",    // enabling exception  handling
+                "/Fe${workspaceFolder}\\build\\main.exe",   // this is necessary for compiling c++ code
+                "${workspaceFolder}\\build\\main.cpp"       // this is necessary for compiling c++ code
+            ],
+            "group": {      // tasks organizing into task group
+                "kind": "build",
+                "isDefault": true       // specifies whether the task is default task in its group
+            },
+            "dependsOn": "build",       // Specify what this task depends on which task. 
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "run",
+            "type": "shell",
+            "command": "${workspaceFolder}\\build\\main.exe",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "dependsOn": "build_and_run"
+        }
+    ]
+}

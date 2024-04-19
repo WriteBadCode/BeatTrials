@@ -1,0 +1,32 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build_and_run",
+            "type": "shell",
+            "command": "cl.exe",
+            "args": [
+                "/Zi",
+                "/EHsc",
+                "/nologo",
+                "/Fe${workspaceFolder}\\build\\main.exe",
+                "${workspaceFolder}\\build\\main.cpp"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "run",
+            "type": "shell",
+            "command": "${workspaceFolder}\\build\\main.exe",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "dependsOn": "build_and_run"
+        }
+    ]
+}

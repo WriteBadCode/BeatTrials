@@ -1,0 +1,72 @@
+client side runs double rendering for the lanes
+
+threading can handle async
+
+but async cannot handle threading
+
+Threading 1:
+    {
+        while (SFML game is going){
+            handle  events (if the player hit something) -> then we send.
+            
+            maintain connection:
+                connection: 101
+                connection 2: 105
+                say we send throuhg an id
+
+
+            handle rendering.
+            handle updates
+            stuff like taht
+            16.7 millisecond = 60 fps. (how fast we refresh)
+        }
+    }
+
+Client socket
+Async:
+    [task 1, task 2, task 3, task 4] - Routines
+    Task 1 (awating player to press something) {
+        send to web socket 
+    }
+    Task 2
+
+
+other_client socket 
+Async: 
+    [task 1, task 2, task 3, task 4] - Routines
+    Task 2 (the other player pressed something!) {
+        update their screen
+    }
+
+# game event
+On Hold (On Press):
+    client game -> client socket -> web socket -> other_client socket
+    {
+        client_connection_id: 1,
+        new_score: 100,     // just the score
+        lanes: [true, false, false, true],     // 1, 0, 0, 1  -     lane state update
+    }
+
+# socket await
+On Receive:
+    {
+        updating lanes state accordingly
+            // lane state is crossed file referenced into the game itself.
+    }
+
+# game loop
+On Update:
+    {
+        receive the current state of the game
+    }
+
+
+SINGLE GAME(disposition=1, size=1, lanes_state), SINGLE GAME(disposition=2, size=0.5, lanes-lanes_state)
+
+
+SocketServer:
+    create rooms (2 players per) (HUGE)
+    input (MEDIUM)
+    output (MEDIUM)
+    handle clients (HUGE)
+
