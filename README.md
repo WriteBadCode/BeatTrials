@@ -1,6 +1,7 @@
 # BeatTrials
 
-[Short description of your project here]
+Supposed to be an optional multiplayer Rythm Game 
+Including Websocket Server :)
 
 ## Directory Structure
 
