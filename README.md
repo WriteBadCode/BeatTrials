@@ -32,10 +32,13 @@ This project is organized into the following directories:
 ## vcpkg Setup and Installation
 
 ### vcpkg Setup
-
-1. Navigate to the vcpkg installation directory (usually `C:\Program Files\Microsoft Visual Studio\2022\Community\VC\vcpkg`).
-2. Run the following command to integrate vcpkg with your project and redirect the download port to the `ext` directory:
+1. Run the following command to integrate vcpkg with your project and redirect the download port to the `ext` directory:
 
    ```bash
    cd "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\vcpkg"
    .\vcpkg.exe integrate install --overlay-ports="<path/to/your/project/ext>"
+
+2. Run the following command to initiate vcpkg:
+    ```bash
+    vcpkg install
+    
