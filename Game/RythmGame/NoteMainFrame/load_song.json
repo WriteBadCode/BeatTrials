@@ -1,4 +1,4 @@
-Note = {
+{
 	"format": "BeepBox",
 	"version": 9,
 	"scale": "easy :)",
@@ -8,8 +8,8 @@ Note = {
 	"beatsPerBar": 8,
 	"ticksPerBeat": 4,
 	"beatsPerMinute": 150,
-	"layeredInstruments": False,
-	"patternInstruments": False,
+	"layeredInstruments": false,
+	"patternInstruments": false,
 	"channels": [
 		{
 			"type": "pitch",
@@ -217,7 +217,7 @@ Note = {
 									"volume": 100
 								}
 							],
-							"continuesLastPattern": False
+							"continuesLastPattern": false
 						},
 						{
 							"pitches": [
@@ -443,7 +443,7 @@ Note = {
 									"volume": 100
 								}
 							],
-							"continuesLastPattern": False
+							"continuesLastPattern": false
 						},
 						{
 							"pitches": [
@@ -567,7 +567,7 @@ Note = {
 									"volume": 100
 								}
 							],
-							"continuesLastPattern": False
+							"continuesLastPattern": false
 						},
 						{
 							"pitches": [
@@ -691,7 +691,7 @@ Note = {
 									"volume": 100
 								}
 							],
-							"continuesLastPattern": False
+							"continuesLastPattern": false
 						},
 						{
 							"pitches": [
@@ -849,7 +849,7 @@ Note = {
 									"volume": 100
 								}
 							],
-							"continuesLastPattern": False
+							"continuesLastPattern": false
 						},
 						{
 							"pitches": [
@@ -1007,7 +1007,7 @@ Note = {
 									"volume": 100
 								}
 							],
-							"continuesLastPattern": False
+							"continuesLastPattern": false
 						},
 						{
 							"pitches": [
@@ -1287,7 +1287,7 @@ Note = {
 									"volume": 100
 								}
 							],
-							"continuesLastPattern": False
+							"continuesLastPattern": false
 						}
 					]
 				}

@@ -45,20 +45,13 @@ class Data:
         return self.lanes
 
     def write_to_file(self, song_name):
-        # file_path = fr"C:\Users\5418m\OneDrive\Documents\GitHub\BeatTrials\Game\RythmGame\NoteMainFrame\{song_name}.txt"
-        with open(fr"{song_name}.txt", "w") as f:
+        file_path = fr".\Game\RythmGame\NoteMainFrame\ParsedSongs\{song_name}.txt"
+        with open(file_path, "w") as f:
             final_content = f"tick_per_second: {self.ticks_per_second}\n"
             for lane in self.lanes:
                 line = ""
                 for note in lane:
                     line += f"{note['pitches'][0]}-{note['points'][0]['tick']}:{note['points'][1]['tick']},"
                 final_content += line + "\n"
-            
+
             f.write(final_content)
-                
-
-                    
-            
-        
-
-
