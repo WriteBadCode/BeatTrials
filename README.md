@@ -1,7 +1,6 @@
 # BeatTrials
 
-Supposed to be an optional multiplayer Rythm Game.
-Including Websocket Server :)
+BeatTrials is an optional multiplayer rhythm game that includes a WebSocket server component.
 
 ## Directory Structure
 
@@ -29,13 +28,66 @@ This project is organized into the following directories:
     * **include/:** Header files for the rhythm game project.
     * **src/main.cpp:** The main source code file for the rhythm game.
 
-### vcpkg Setup
-1. Run the following command to integrate vcpkg with your project and redirect the download port to the `ext` directory:
+## vcpkg Setup
 
-   ```bash
-   cd "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\vcpkg"
-   .\vcpkg.exe integrate install --overlay-ports="<path/to/your/project/ext>"
+1. Run the following command to integrate vcpkg with your project and redirect the download port to the `ext` directory:
+    ```bash
+    cd "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\vcpkg"
+    .\vcpkg.exe integrate install --overlay-ports="<path/to/your/project/ext>"
+    ```
 
 2. Run the following command to initiate vcpkg:
     ```bash
     vcpkg install
+    ```
+
+3. Return to the file directory where `CMakeLists.txt` is located (should be in the `Game` directory).
+
+4. Run the following command to make a directory to build the project:
+    ```bash
+    mkdir build
+    cd build
+    ```
+
+5. Create the CMake building files:
+    ```bash
+    cmake ..
+    ```
+
+6. Build the actual project:
+    ```bash
+    cmake --build .
+    ```
+
+## How to Run
+
+To run the project, open file explorer, navigate to the `Debug` directory inside your `build` folder, then select the `.exe` executable you want to run.
+
+## How to Refresh
+
+To refresh the project, run the following command:
+```bash
+cmake --build . --config Debug
+
+How to Clean .exe
+
+To clean the .exe files, run the following command:
+
+bash
+
+cmake --build . --target clean
+
+How to Destroy the Debug File
+
+To completely remove the Debug folder, run the following command:
+
+bash
+
+cmake --build . --target clean-all
+
+Note: The "destroying the debug file" command is a custom command. Check CMakeLists.txt for more info.
+
+arduino
+
+
+This format should provide clear instructions for users on how to set up, build, run, and clean the project.

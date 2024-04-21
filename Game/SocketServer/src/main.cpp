@@ -1,8 +1,12 @@
 #include <iostream>
-#include <./websocketpp/config/asio_no_tls.hpp>
+#include <websocketpp/config/asio_no_tls.hpp>
 #include <websocketpp/server.hpp>
 
+// Define the type of the message handler function
+using message_handler_t = std::function<void(websocketpp::connection_hdl, websocketpp::server<websocketpp::config::asio>::message_ptr)>;
+
 int main() {
+    std::cout << "hello this is websocket" << std::endl;
     // Create a WebSocket server endpoint
     using server_t = websocketpp::server<websocketpp::config::asio>;
     server_t server;
@@ -10,15 +14,18 @@ int main() {
     // Initialize the server
     server.init_asio();
 
-    // Set up a callback to handle incoming messages
-    server.set_message_handler([](server_t::connection_ptr connection, server_t::message_ptr message) {
-        if (message->get_opcode() == websocketpp::frame::opcode::text) {
-            std::cout << "Received message: " << message->get_payload() << std::endl;
+    // Define the message handler function
+    message_handler_t message_handler = [&server](websocketpp::connection_hdl hdl, websocketpp::server<websocketpp::config::asio>::message_ptr msg) {
+        if (msg->get_opcode() == websocketpp::frame::opcode::text) {
+            std::cout << "Received message: " << msg->get_payload() << std::endl;
 
             // Echo the message back to the client
-            connection->send(message->get_payload(), message->get_opcode());
+            server.send(hdl, msg->get_payload(), msg->get_opcode());
         }
-    });
+    };
+
+    // Set up a callback to handle incoming messages
+    server.set_message_handler(message_handler);
 
     // Listen on port 9002
     server.listen(9002);
