@@ -1,28 +1,17 @@
 #include <iostream>
-#include <SFML/Graphics.hpp>
 
-int main()
-{
+// #include "../include/ClientSocket/runClientSocket.hpp"
+#include "../include/RhythmCore/Screen/Menu.hpp"
 
-    // std::cout << "hello" << std::endl;
+int main(void) {
+    RThreadMain();
+    // std::thread t1(RThreadMain, 1);
+    // std::thread client_socket_(runClientSocket, 2);
 
-    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
+    // t1.join();
+    // client_socket_.join();
 
-    while (window.isOpen())
-    {
-        sf::Event event;
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-                window.close();
-        }
+    // std::cout << "Thread has completed its execution" << std::endl;
 
-        window.clear();
-        window.draw(shape);
-        window.display();
-    }
-
-    return 0;
+    // runClientSocket();
 }

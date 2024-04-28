@@ -1,0 +1,29 @@
+{
+    "player_name": # player_name here
+    "type" : # communication type here
+    "content" : {
+        # content here
+    }
+}
+
+types:
+    sign_up:
+        {
+            # something? or even nothing is probably fine
+            # as long as we know the player is trying to sign up
+        }
+
+    communication:
+        {
+            # probably just status updating infos
+        }
+
+    exit:
+        {
+            "reason": # reason for why the player exit the game
+                      # probably not needed as well?
+                      # it's a really simple game after all
+        }
+
+
+    

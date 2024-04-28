@@ -1,7 +1,8 @@
 from data import Data
 import json
+import os
 
-file_path = fr".\Game\RythmGame\NoteMainFrame\load_song.json"
+file_path = fr".\Game\RhythmGame\NoteMainFrame\load_song.json"
 with open(file_path, 'r', encoding="utf-8") as f:
     loaded_song = json.loads(f.read())
 
