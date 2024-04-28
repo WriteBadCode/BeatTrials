@@ -5,6 +5,8 @@
     "dependencies": [
         "websocketpp",
         "sfml",
-        "boost-filesystem"
+        "boost-filesystem",
+        "boost-random",
+        "nlohmann-json"
     ]
 }

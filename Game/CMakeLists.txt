@@ -11,16 +11,32 @@ set(CMAKE_PREFIX_PATH "${GAME_DIR}/ext/vcpkg_installed/x64-windows")
 
 # Find libraries (assuming vcpkg takes care of include paths)
 find_package(websocketpp CONFIG REQUIRED)  # Find websocketpp library
-find_package(Boost REQUIRED COMPONENTS filesystem system)  # Find Boost with specific components
+find_package(Boost REQUIRED COMPONENTS filesystem system random)  # Find Boost with specific components
 find_package(SFML COMPONENTS graphics system window REQUIRED)  # Find SFML with graphics and system components
+find_package(nlohmann_json CONFIG REQUIRED) # Find nlohmann json
+
+set(SFML_LIBS sfml-graphics sfml-system sfml-audio)
+set(BOOST_LIBS Boost::filesystem Boost::system Boost::random)
 
 # Build WebSocket Server target
 add_executable(websocket_server ${SERVER_DIR}/src/main.cpp)
-target_link_libraries(websocket_server websocketpp::websocketpp Boost::filesystem Boost::system)
+target_link_libraries(websocket_server 
+    PRIVATE 
+        websocketpp::websocketpp 
+        ${BOOST_LIBS}
+        nlohmann_json::nlohmann_json
+)
 
 # Build Rhythm Game target
 add_executable(rhythm_game ${RHYTHM_GAME_DIR}/src/main.cpp)
-target_link_libraries(rhythm_game sfml-graphics sfml-system websocketpp::websocketpp Boost::filesystem Boost::system)
+target_link_libraries(rhythm_game 
+    PRIVATE 
+        ${SFML_LIBS}
+        websocketpp::websocketpp 
+        ${BOOST_LIBS}
+        nlohmann_json::nlohmann_json
+)
+
 
 # Set output directory for built executables (optional)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/bin")
